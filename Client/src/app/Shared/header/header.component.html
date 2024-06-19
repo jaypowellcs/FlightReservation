@@ -1,0 +1,55 @@
+<!-- src/app/header/header.component.html -->
+<header class="bg-gradient-to-r from-blue-800 to-blue-400 text-white p-4 shadow-md dark:bg-gradient-to-r dark:from-gray-800 dark:via-gray-700 dark:to-gray-600">
+    <div class="container mx-auto flex justify-between items-center">
+      <!-- Logo -->
+      <div class="text-2xl font-bold">
+        FlightFinder
+      </div>
+  
+      <!-- Navigation and Search -->
+      <div class="flex items-center space-x-6">
+        <!-- Search Bar -->
+        <div class="relative">
+          <input type="text" placeholder="Search..." class="transition-all duration-300 ease-in-out pl-10 pr-4 py-2 rounded-full bg-white text-black focus:outline-none focus:ring-2 focus:ring-blue-300 dark:bg-gray-700 dark:text-gray-200">
+          <svg class="w-6 h-6 absolute left-2 top-1/2 transform -translate-y-1/2 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1116.65 16.65z"></path>
+          </svg>
+        </div>
+  
+        <!-- Dark Mode Toggle -->
+        <button (click)="toggleDarkMode()" class="focus:outline-none">
+          <svg class="w-6 h-6 text-gray-100 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path [attr.d]="darkMode ? 'M12 3v3m0 12v3m9-9h-3M6 12H3m12.25 4.25l2.12 2.12M6.34 6.34l2.12 2.12m0 7.08l-2.12 2.12m7.08-7.08l2.12-2.12M21 12a9 9 0 11-9-9 9 9 0 010 18z' : 'M17.293 14.293a1 1 0 011.414 1.414 8.001 8.001 0 01-11.314 0 1 1 0 011.414-1.414 6 6 0 108.486 0z'"></path>
+          </svg>
+        </button>
+  
+        <!-- Menu for larger screens -->
+        <nav class="hidden md:flex space-x-6">
+          <a href="#" class="hover:text-gray-300 transition duration-300">Home</a>
+          <a href="#" class="hover:text-gray-300 transition duration-300">About</a>
+          <a href="#" class="hover:text-gray-300 transition duration-300">Flight Finder</a>
+          <a href="#" class="hover:text-gray-300 transition duration-300">Contact</a>
+        </nav>
+  
+        <!-- Hamburger Menu for smaller screens -->
+        <div class="md:hidden">
+          <button (click)="toggleMenu()" class="focus:outline-none">
+            <svg class="w-6 h-6 text-gray-100" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Mobile Menu -->
+    <div *ngIf="menuOpen" class="md:hidden">
+      <nav class="space-y-2 px-2 pb-4">
+        <a href="#" class="block hover:text-gray-300 transition duration-300">Home</a>
+        <a href="#" class="block hover:text-gray-300 transition duration-300">About</a>
+        <a href="#" class="block hover:text-gray-300 transition duration-300">Services</a>
+        <a href="#" class="block hover:text-gray-300 transition duration-300">Contact</a>
+      </nav>
+    </div>
+  </header>
+  
